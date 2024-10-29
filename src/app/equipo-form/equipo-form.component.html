@@ -1,0 +1,79 @@
+<div class="container centercard">
+  <div class="card" style="width: 50%; margin: 0 auto;">
+    <div class="card-body">
+      <h2 class="text-center" *ngIf="!id">Añadir nuevo equipo</h2>
+      <h2 class="text-center" *ngIf="id">Editar equipo</h2>
+      <!-- Usamos ngForm para el formulario -->
+      <form (ngSubmit)="saveEquipo()" #equipoForm="ngForm">
+        
+        <!-- Nombre del Dueño -->
+        <div class="form-group">
+          <label>Nombre del Dueño</label>
+          <input type="text" class="form-control" [(ngModel)]="equipo.nombre_dueno" name="nombre_dueno" required #nombreDueno="ngModel">
+          <!-- Warning si está vacío -->
+          <div *ngIf="nombreDueno.invalid && nombreDueno.touched" class="text-danger">
+            El nombre del dueño es requerido
+          </div>
+        </div>
+
+        <!-- Apellido del Dueño -->
+        <div class="form-group">
+          <label>Apellido del Dueño</label>
+          <input type="text" class="form-control" [(ngModel)]="equipo.apellido_dueno" name="apellido_dueno" required #apellidoDueno="ngModel">
+          <!-- Warning si está vacío -->
+          <div *ngIf="apellidoDueno.invalid && apellidoDueno.touched" class="text-danger">
+            El apellido del dueño es requerido
+          </div>
+        </div>
+
+        <!-- Modelo del Equipo -->
+        <div class="form-group">
+          <label>Modelo del Equipo</label>
+          <input type="text" class="form-control" [(ngModel)]="equipo.modelo" name="modelo" required #modelo="ngModel">
+          <!-- Warning si está vacío -->
+          <div *ngIf="modelo.invalid && modelo.touched" class="text-danger">
+            El modelo del equipo es requerido
+          </div>
+        </div>
+
+        <!-- Fecha de Ingreso -->
+        <div class="form-group">
+          <label>Fecha de Ingreso</label>
+          <input type="date" class="form-control" [(ngModel)]="equipo.fecha_ingreso" name="fecha_ingreso" required #fechaIngreso="ngModel">
+          <!-- Warning si está vacío -->
+          <div *ngIf="fechaIngreso.invalid && fechaIngreso.touched" class="text-danger">
+            La fecha de ingreso es requerida
+          </div>
+        </div>
+
+        <!-- Teléfono -->
+        <div class="form-group">
+          <label>Teléfono</label>
+          <input type="text" class="form-control" [(ngModel)]="equipo.telefono" name="telefono" required #telefono="ngModel">
+          <!-- Warning si está vacío -->
+          <div *ngIf="telefono.invalid && telefono.touched" class="text-danger">
+            El número de teléfono es requerido
+          </div>
+        </div>
+
+        <!-- Descripción del Fallo -->
+        <div class="form-group">
+          <label>Descripción del Fallo</label>
+          <textarea class="form-control" [(ngModel)]="equipo.fallo" name="fallo" required #fallo="ngModel"></textarea>
+          <!-- Warning si está vacío -->
+          <div *ngIf="fallo.invalid && fallo.touched" class="text-danger">
+            La descripción del fallo es requerida
+          </div>
+        </div>
+
+        <!-- Botones: Guardar y Cancelar -->
+        <div class="button-group cancelbtn">
+          <!-- El botón de Guardar se deshabilita si el formulario es inválido -->
+          <button type="submit" class="btn btn-success mt-3" [disabled]="equipoForm.invalid">Guardar</button>
+          <button type="button" class="btn btn-secondary mt-3 ml-3" (click)="cancel()">Cancelar</button>
+        </div>
+
+      </form>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,41 @@
+/* Estilo para centrar el formulario vertical y horizontalmente */
+.centercard {
+  display: flex;
+  justify-content: center; /* Centrar horizontalmente */
+  align-items: center; /* Centrar verticalmente */
+  min-height: 100vh; /* Hacer que el contenedor ocupe toda la pantalla */
+}
+
+/* Estilo de la tarjeta */
+.card {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra alrededor de la tarjeta */
+  border-radius: 10px; /* Bordes redondeados */
+  background-color: white; /* Fondo blanco */
+  padding: 20px; /* Espaciado interno */
+}
+
+/* Estilo del botón */
+.btn-success {
+  background-color: #28a745; /* Verde oscuro */
+  border: none;
+}
+
+.btn-success:hover {
+  background-color: #218838; /* Verde más claro en hover */
+}
+
+.cancelbtn {
+  display: flex;
+  justify-content: center;
+
+  button {
+    margin-right: 10px;
+    margin-left: 10px;
+  }
+}
+
+.text-danger {
+    color: red;
+    font-size: 14px;
+    margin-top: 5px;
+  }
